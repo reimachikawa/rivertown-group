@@ -1,34 +1,552 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Rivertown Group</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rivertown Group | Real Estate Investment</title>
+  <meta name="description" content="Rivertown Group is a real estate investment group that works directly with homeowners to purchase properties in a simple, transparent, and straightforward way." />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 60px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #222;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: #1f2933;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #0f172a;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 15px;
+      color: #475569;
+    }
+
+    .nav-button {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      color: white;
+      padding: 96px 0 88px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      color: #cbd5e1;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
     h1 {
-      font-size: 32px;
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #dbe4ef;
+      max-width: 650px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #ffffff;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.22);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-card h3 {
+      font-size: 23px;
+      margin-bottom: 18px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      color: #e2e8f0;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      margin-right: 10px;
+      color: #86efac;
+      font-weight: 900;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 38px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+      margin-bottom: 14px;
+      color: #0f172a;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      color: #64748b;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 28px;
+      background: #ffffff;
+      box-shadow: 0 12px 35px rgba(15,23,42,0.06);
+    }
+
+    .card .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .card p {
+      color: #64748b;
+    }
+
+    .split {
+      background: #f8fafc;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .image-block {
+      min-height: 420px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #dbeafe, #e2e8f0 45%, #f8fafc);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: end;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    .image-caption {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 18px 45px rgba(15,23,42,0.12);
+      max-width: 360px;
+    }
+
+    .image-caption strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+
+    .steps {
+      display: grid;
+      gap: 18px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .step-number {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin-bottom: 5px;
+      color: #0f172a;
+    }
+
+    .step p {
+      color: #64748b;
+    }
+
+    .about {
+      background: #ffffff;
+    }
+
+    .about-box {
+      background: #0f172a;
+      color: white;
+      border-radius: 30px;
+      padding: 52px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-box h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+    }
+
+    .about-box p {
+      color: #cbd5e1;
+      font-size: 18px;
+    }
+
+    .contact {
+      background: #f8fafc;
+    }
+
+    .contact-box {
+      border-radius: 30px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 38px;
+      box-shadow: 0 20px 60px rgba(15,23,42,0.08);
+    }
+
+    .contact h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+      margin-bottom: 14px;
+      color: #0f172a;
+    }
+
+    .contact p {
+      color: #64748b;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 14px;
+      color: #0f172a;
+      font-size: 17px;
+    }
+
+    .contact-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    footer {
+      padding: 28px 0;
+      color: #64748b;
+      font-size: 14px;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 840px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .split-grid,
+      .about-box,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 76px 0 62px;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .about-box,
+      .contact-box {
+        padding: 32px;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="container nav">
+      <div class="logo">Rivertown Group</div>
+      <nav class="nav-links">
+        <a href="#how">How It Works</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-button">Contact Us</a>
+      </nav>
+    </div>
+  </header>
 
-<h1>Rivertown Group</h1>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Real Estate Investment Group</span>
+          <h1>Simple, direct home buying solutions.</h1>
+          <p>Rivertown Group works directly with homeowners to purchase properties in a clear, straightforward, and flexible way.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Get in Touch</a>
+            <a href="#how" class="btn-secondary">How It Works</a>
+          </div>
+        </div>
 
-<p><strong>Simple, direct home buying solutions.</strong></p>
+        <div class="hero-card">
+          <h3>We make the process easier.</h3>
+          <ul class="check-list">
+            <li>Sell your property as-is</li>
+            <li>No repairs or cleaning needed</li>
+            <li>Flexible closing timelines</li>
+            <li>Clear communication from start to finish</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<p>We are a real estate investment group that works directly with homeowners to purchase properties in a simple and straightforward way.</p>
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>A straightforward way to explore selling.</h2>
+          <p>Whether you are ready to sell or simply considering your options, our goal is to keep the process simple, respectful, and transparent.</p>
+        </div>
 
-<p>We buy properties as-is, with flexible closing timelines and clear communication from start to finish.</p>
+        <div class="cards">
+          <div class="card">
+            <div class="icon">🏠</div>
+            <h3>As-Is Purchases</h3>
+            <p>You do not need to make repairs, clean out the property, or prepare it like a traditional listing.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📅</div>
+            <h3>Flexible Timelines</h3>
+            <p>We work with sellers who need a faster closing as well as those who need more time to plan their next step.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🤝</div>
+            <h3>Direct Communication</h3>
+            <p>You deal with us directly, with clear expectations and a simple process from the first conversation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<h3>Contact</h3>
-<p>Email: rivertown-group@gmail.com</p>
+    <section class="split" id="how">
+      <div class="container split-grid">
+        <div class="image-block">
+          <div class="image-caption">
+            <strong>Designed for clarity.</strong>
+            <span>Our process is built around simple communication, fair expectations, and practical solutions.</span>
+          </div>
+        </div>
 
+        <div>
+          <div class="section-header">
+            <h2>How it works</h2>
+            <p>We keep the process simple so you can understand your options without pressure.</p>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div>
+                <h3>Reach out</h3>
+                <p>Contact us with basic information about the property and your situation.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div>
+                <h3>Property review</h3>
+                <p>We review the property, condition, timeline, and any details that may affect the sale.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div>
+                <h3>Simple next steps</h3>
+                <p>If there is a fit, we discuss a direct purchase option and a closing timeline that works for everyone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-box">
+          <h2>About Rivertown Group</h2>
+          <p>Rivertown Group is a real estate investment group focused on practical property solutions. We work with local buyers and investors to purchase properties directly from homeowners while keeping communication clear and the process straightforward.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-box">
+        <div>
+          <h2>Let’s talk about your property.</h2>
+          <p>Reach out if you are interested in selling, considering your options, or simply want to understand what a direct sale could look like.</p>
+          <div class="contact-details">
+            <div><strong>Email:</strong> <a href="mailto:rivertown-group@gmail.com">rivertown-group@gmail.com</a></div>
+            <div><strong>Phone:</strong> <span>+1 315 300 7983</span></div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>No pressure. Clear answers.</h3>
+          <p>We are happy to review the situation and let you know whether we may be a fit. If not, you still leave with more clarity about your options.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© 2026 Rivertown Group. All rights reserved.</div>
+      <div>Real Estate Investment Group</div>
+    </div>
+  </footer>
 </body>
 </html>
+
